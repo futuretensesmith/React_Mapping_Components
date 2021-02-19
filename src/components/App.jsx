@@ -2,13 +2,20 @@ import React from "react";
 import Entry from "./Entry";
 import emojipedia from "../emojipedia";
 
-function createEntry(emojipedia) {
+//***** Each child in a list *******
+//should have a unique "key" prop */
+// we are passing in each prop into the function createEntry()
+//from the Entry component. Then we are passing the createEntry function
+//into the map() to get hold of emojiTerm
+
+function createEntry(emojiTerm) {
   return (
     <Entry
-      emoji={emojipedia.emoji}
-      name={emojipedia.name}
-      meaning={emojipedia.meaning}
-      aria-label={emojipedia.name}
+      key={emojiTerm.id}
+      emoji={emojiTerm.emoji}
+      name={emojiTerm.name}
+      meaning={emojiTerm.meaning}
+      aria-label={emojiTerm.name}
     />
   );
 }
@@ -26,7 +33,7 @@ function App() {
 }
 
 {
-  //****** pre-mapped hard coded tester function ******
+  //****** pre-mapped hardcoded tester function ******
   /* function App() {
   return (
     <div>
